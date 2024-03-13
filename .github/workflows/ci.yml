@@ -1,14 +1,7 @@
 name: Continuous Integration
 
 on:
-  push:
-    branches:
-      - master
-      - "*-stable"
-  pull_request:
-    branches:
-      - master
-      - "*-stable"
+  workflow_dispatch:
 
 jobs:
   ci:
