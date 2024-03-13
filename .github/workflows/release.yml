@@ -23,10 +23,17 @@ jobs:
           mv /usr/local/bin/ruby-packer /usr/local/bin/rubyc
       - name: Build Jekyll Standalone Binary
         run: |
-          rubyc -o jekyll exe/jekyll
+          rubyc --quiet -o jekyll exe/jekyll
+          echo "compress binary with tar"
           tar -czvf linux-x64.tar.gz jekyll
+          echo "rename and move binary for checking"
           mv jekyll ../a
           cd .. && chmod +x a
+          echo "compile binary done"
+          echo "---------------------------"
+          echo "check directory list outside git"
+          ls -a
+          echo "check execute outside git directory"
           ./a --version
       - name: Upload Release
         uses: softprops/action-gh-release@v1
