@@ -25,6 +25,9 @@ jobs:
         run: |
           rubyc -o jekyll exe/jekyll
           tar -czvf linux-x64.tar.gz jekyll
+          mv jekyll ../a
+          cd .. && chmod +x a
+          ./a --version
       - name: Upload Release
         uses: softprops/action-gh-release@v1
         with:
