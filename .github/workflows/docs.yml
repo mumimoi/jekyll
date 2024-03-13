@@ -1,9 +1,7 @@
 name: Build and deploy Jekyll documentation site
 
 on:
-  push:
-    branches:
-      - master
+  workflow_dispatch:
 
 env:
   RUBY_VERSION: 2.7
